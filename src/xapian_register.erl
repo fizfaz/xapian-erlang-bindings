@@ -15,7 +15,7 @@ new() ->
     gb_trees:empty().
 
 -record(context, {mon_ref, resources}).
--type store() :: gb_tree().
+-type store() :: gb_trees:tree().
 
 %% @doc Save `Elem' inside `ClientPid''s context.
 -spec put(Store, ClientPid, Elem) -> {ok, {Store, ResRef}} when

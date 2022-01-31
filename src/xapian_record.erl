@@ -83,7 +83,7 @@ key_position(#rec{fields=TupleFields}, Field) ->
 %% @doc Convert `Meta' into a tuple, where fields are fields' names.
 -spec tuple(Meta) -> Rec when
     Meta :: x_document_meta(),
-    Rec :: record().
+    Rec :: tuple().
 tuple(#rec{name=TupleName, fields=TupleFields}) ->
     list_to_tuple([TupleName | TupleFields]).
 

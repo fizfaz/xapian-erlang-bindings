@@ -11,7 +11,7 @@
          put/3,
          get_table_id/0]).
 
--type gb_tree2(X, X) :: gb_tree().
+-type gb_tree2(X, X) :: gb_trees:tree().
 
 -record(qlc_table_hash_register, {
         hash_to_ref = gb_trees:empty() 

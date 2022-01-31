@@ -178,7 +178,7 @@ resource_reference_to_number(Register, ClientPid, ResRef) ->
     %% It is used for float values. Usually, type is `string', it is the 
     %% same as `undefined'.
     %% An index of the array is a slot number.
-    slot_to_type :: array() | undefined,
+    slot_to_type :: array:array() | undefined,
 
     %% Used for creating resources.
     %% It contains mapping from an atom to information, about how to create 
@@ -1285,7 +1285,7 @@ client_error_handler({error, Reason}) ->
     erlang:error(Reason);
 
 client_error_handler({exception_migration, Type, Reason, Trace}) -> 
-    ClientTrace = erlang:get_stacktrace(),
+    ClientTrace = [], % FIXME      erlang:get_stacktrace(),
     erlang:raise(Type, #x_server_error{reason=Reason, trace=Trace}, ClientTrace).
 
 
@@ -1375,9 +1375,8 @@ handle_call(Mess, From, State) ->
     %% TODO: maybe it want to be restarted, because of the bad code upgrade?
     try
         hc(Mess, From, State)
-    catch Type:Reason ->
+    catch Type:Reason:Trace ->
         %% Retranslate this error on the client.
-        Trace = erlang:get_stacktrace(),
         Reply = {exception_migration, Type, Reason, Trace},
         {reply, Reply, State}
     end.

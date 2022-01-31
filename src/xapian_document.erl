@@ -37,7 +37,7 @@
 %% @doc Encode parts of the document to a binary.
 %% N2P - Name2Prefix, N2S - Name2Slot, S2T - Slot2TypeArray, RA - ResourceAppender.
 -spec encode([xapian_type:x_document_index_part()], 
-             orddict:orddict(), orddict:orddict(), array(),
+             orddict:orddict(), orddict:orddict(), array:array(),
              term()) -> binary().
 
 encode(List, N2P, N2S, S2T, RA) ->

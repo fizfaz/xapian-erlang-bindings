@@ -36,7 +36,7 @@
 -type x_table()     :: xapian_server:x_table().
 -type x_string()    :: xapian_server:x_string().
 -type x_resource()  :: xapian_server:x_resource().
--type x_term_meta() :: record().
+-type x_term_meta() :: tuple().
 
 %% @equiv spelling_table(Server, Meta, []) 
 spelling_table(Server, Meta) ->
