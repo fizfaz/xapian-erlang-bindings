@@ -1,5 +1,4 @@
-ebin/*
-deps/*
+_build/*
 *.swp
 *.dump
 *.trace  
