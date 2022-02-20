@@ -42,6 +42,7 @@ CXXFLAGS += -std=c++98 -Wall -pedantic -Wconversion -Wextra -Wcast-qual -Wcast-a
 CXXFLAGS += $(shell xapian-config --cxxflags)
 
 LDLIBS += -L $(ERL_INTERFACE_LIB_DIR) -lei
+LDLIBS += $(shell xapian-config --libs)
 LDFLAGS += -shared
 
 # Verbosity.
